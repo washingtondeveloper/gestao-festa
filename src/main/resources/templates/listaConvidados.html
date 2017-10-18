@@ -11,12 +11,13 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<div class="panel panel-primary" style="margin: 10px">
-		<div class="panel-heading">
-			<h1 class="panel-title">Lista de Convidados</h1>
-		</div>
-		<div class="panel-body">
-			<div class="container">
+	<div class="container">
+		<div class="panel panel-primary" style="margin: 10px">
+			<div class="panel-heading">
+				<h1 class="panel-title">Lista de Convidados</h1>
+			</div>
+			<div class="panel-body">
+
 				<form class="form-inline" style="margin: 20px 0"
 					th:object="${convidado}" th:action="@{/convidados}" method="POST">
 					<input type="hidden" th:field="*{id}" />
@@ -28,9 +29,9 @@
 						<button class="btn btn-primary">Adicionar</button>
 					</div>
 				</form>
-			</div>
 
-			<div class="container">
+
+
 				<table class="table table-bordered">
 					<thead>
 						<tr>
@@ -42,16 +43,20 @@
 					<tbody>
 						<tr th:each="convidado : ${convidados}">
 							<td th:text="${convidado.nome}"></td>
-							<td th:text="${convidado.quantidadeAcompanhantes}"	class="text-center"></td>
-							<td style="width: 95px;">
-								<a	th:href="@{/convidados/editar/{id}(id=${convidado.id})}" title="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
-								&nbsp; 
-								<a th:href="@{/convidados/delete/{id}(id=${convidado.id})}"title="Excluir"><i class="glyphicon glyphicon-remove"></i></a></td>
+							<td th:text="${convidado.quantidadeAcompanhantes}"
+								class="text-center"></td>
+							<td style="width: 95px;"><a
+								th:href="@{/convidados/editar/{id}(id=${convidado.id})}"
+								title="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+								&nbsp; <a
+								th:href="@{/convidados/delete/{id}(id=${convidado.id})}"
+								title="Excluir"><i class="glyphicon glyphicon-remove"></i></a></td>
 						</tr>
 					</tbody>
 				</table>
-			</div>
 
+
+			</div>
 		</div>
 	</div>
 </body>
